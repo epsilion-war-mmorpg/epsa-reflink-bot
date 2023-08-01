@@ -12,6 +12,7 @@ bot = Bot(
     parse_mode='Markdown',
 )
 router = Dispatcher(bot)
+logger = logging.getLogger(__file__)
 
 
 @router.message_handler(
@@ -20,6 +21,7 @@ router = Dispatcher(bot)
 )
 async def start(message: types.Message) -> None:
     """Show welcome message."""
+    logger.info('start handler')
     link = app_settings.reflink_template.format(user_id=app_settings.default_ref_user_id)
     help_message = '\n'.join([
         f'Бот предназначен для быстрого получения реферальной ссылки пользователя в игре [Epsilion War]({link}).',
@@ -34,6 +36,8 @@ async def start(message: types.Message) -> None:
 @router.message_handler()
 async def reflink(message: types.Message) -> None:
     """Generate reflink by detected user_id."""
+    logger.info('reflink handler by {0}'.format(message.from_user.username))
+
     user_id = _get_user_id_by_message(message)
     if not user_id:
         await message.answer(
@@ -43,7 +47,7 @@ async def reflink(message: types.Message) -> None:
 
     link = app_settings.reflink_template.format(user_id=user_id)
     await message.reply(
-        text=f'User: {user_id}.\nReflink: {link}',
+        text=f'User: {user_id}\nReflink: {link}',
         disable_web_page_preview=True,
     )
 
@@ -55,10 +59,10 @@ def _get_user_id_by_message(message: types.Message) -> int | None:
         # search by forward message
         return message.forward_from.id
 
-    # todo search by @username mention
+    # todo search by @username
     # todo search by link t.me
     # todo search by user_id
-    # todo search by mention in reply
+    # todo search by mention as reply
     return None
 
 
