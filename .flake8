@@ -3,24 +3,11 @@ max-line-length = 125
 max-local-variables = 7
 
 ignore =
-    DAR101,  # Missing parameter(s) in Docstring
-    DAR201,  # Missing "Returns" in Docstring
-    WPS237,  # Found a too complex `f` string
-    WPS305,  # F-strings is OK
-    WPS332,  # Walrus operator is OK
-    WPS306,  # Used dataclasses
-    S410,    # Using etree to parse untrusted XML data is known to be vulnerable to XML attacks.
+    # Missing parameter(s) in Docstring
+    DAR101,
 
-per-file-ignores =
-    #   WPS202: Found too many module members
-    #   WPS226: Found string literal over-use
-    #   WPS412: Found `__init__.py` module with logic
-    #   WPS432: Found magic number
-    #   WPS526: Found implicit `yield from` usage
-    #   E501:   line too long
-    #   F401:   imported but unused
-    #   S108:   Probable insecure usage of temp file/directory
+    # Missing "Returns" in Docstring
+    DAR201,
 
-    app/settings.py: WPS226, WPS432, E501, S108,
-    app/bot.py: WPS202, WPS526,
-    app/repo/__init__.py: WPS412, F401,
+    # F-strings is OK
+    WPS305,
