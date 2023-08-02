@@ -31,6 +31,7 @@ async def start(message: types.Message) -> None:
     help_message = '\n'.join([
         f'Бот предназначен для быстрого получения реферальной ссылки пользователя в игре [Epsilion War]({link}).',
         'Просто перешлите мне его сообщение и я попробую сгенерировать реферальную ссылку.',
+        'Также можете прислать ник, контакт, ID.',
     ])
     await message.reply(
         text=help_message,
@@ -38,7 +39,7 @@ async def start(message: types.Message) -> None:
     )
 
 
-@router.message_handler()
+@router.message_handler(content_types=[types.ContentType.TEXT, types.ContentType.CONTACT])
 async def reflink(message: types.Message) -> None:
     """Generate reflink by detected user_id."""
     logger.info('reflink handler by {0}'.format(message.from_user.username))
@@ -52,16 +53,20 @@ async def reflink(message: types.Message) -> None:
 
     link = app_settings.reflink_template.format(user_id=user_id)
     await message.reply(
-        text=f'User: {user_id}\nReflink: {link}',
+        text=f'Reflink: {link}',
         disable_web_page_preview=True,
     )
 
 
 async def _get_user_id_by_message(message: types.Message) -> int | None:
-    logger.debug(message)
+    logger.info(message)
     if message.forward_from:
         # search by forward message
         return message.forward_from.id
+
+    if message.contact:
+        # search by shared contact
+        return message.contact.user_id
 
     # search by @username, user_id, link t.me/*
     user_id = await _search_users(message.text)
