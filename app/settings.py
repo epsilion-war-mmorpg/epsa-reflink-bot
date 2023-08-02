@@ -16,6 +16,7 @@ class AppSettings(BaseSettings):
     user_bot_session: str = 'must be filled by python -m app.auth'
 
     debug: bool = Field(default=False)
+    cache_time: int = 300
     reflink_template: str = 'https://t.me/epsilionwarbot?start=ref-{user_id}'
     default_ref_user_id: int = 1105883852
 

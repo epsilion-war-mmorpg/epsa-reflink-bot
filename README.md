@@ -1,6 +1,5 @@
 # Epsilion War ref-links generator.
-
-TODO description.
+The bot is designed to quickly get a user's referral link in the game Epsilion War
 
 ### Links
 [Telegram bot](http://t.me/epsa_ref_bot)
