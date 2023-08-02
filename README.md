@@ -28,7 +28,7 @@ $ poetry run flake8 app/
 
 ### Run Telegram auth util
 ```bash
-python -m app.pyrogram_auth
+python -m app.auth
 ```
 
 ### Run Telegram bot

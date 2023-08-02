@@ -9,5 +9,11 @@ ignore =
     # Missing "Returns" in Docstring
     DAR201,
 
+    #  Found too long ``try`` body length
+    WPS229,
+
     # F-strings is OK
     WPS305,
+
+    # Found walrus operator
+    WPS332,
