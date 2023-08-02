@@ -15,14 +15,6 @@ $ pip install -U poetry
 $ poetry install
 ```
 
-Create env file to override default config
-```bash
-cat > .env << EOF
-debug=true
-bot_token=U_TELEGRAM_TOKEN
-EOF
-```
-
 ### Run tests
 ```bash
 $ pytest --cov=app
@@ -34,6 +26,10 @@ $ poetry run mypy app/
 $ poetry run flake8 app/
 ```
 
+### Run Telegram auth util
+```bash
+python -m app.pyrogram_auth
+```
 
 ### Run Telegram bot
 ```bash

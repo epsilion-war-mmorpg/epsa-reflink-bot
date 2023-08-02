@@ -33,4 +33,5 @@ jobs:
     - name: Run tests
       run: |
         echo 'bot_token=${{ secrets.TELEGRAM_TEST_TOKEN }}' > .env
+        echo 'user_bot_session=${{ secrets.TELEGRAM_TEST_USER_SESSION }}' >> .env
         poetry run pytest -ra -v --cov=app

@@ -44,4 +44,5 @@ jobs:
             $VENV_BIN/poetry install --only main
             $VENV_BIN/pip cache purge
             echo 'bot_token=${{ secrets.TELEGRAM_PRODUCTION_TOKEN }}' > .env
+            echo 'user_bot_session=${{ secrets.TELEGRAM_PRODUCTION_USER_SESSION }}' >> .env
             supervisorctl restart reflink-bot
