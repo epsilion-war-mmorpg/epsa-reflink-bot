@@ -107,7 +107,6 @@ async def _get_user_id_by_message(message: types.Message) -> tuple[int | None, s
     if user_id:
         return user_id, username
 
-    # todo search by mention as reply
     return None, unknown_username
 
 

@@ -1,8 +1,9 @@
-# Epsilion War ref-links generator.
-The bot is designed to quickly get a user's referral link in the game Epsilion War
+The Epsilion War [ref-links generator](http://t.me/epsa_ref_bot).
+========
+[![tests](https://github.com/esemi/epsa-reflink-bot/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/esemi/epsa-reflink-bot/actions/workflows/tests.yml)
+[![linters](https://github.com/esemi/epsa-reflink-bot/actions/workflows/linters.yml/badge.svg?branch=master)](https://github.com/esemi/epsa-reflink-bot/actions/workflows/linters.yml)
 
-### Links
-[Telegram bot](http://t.me/epsa_ref_bot)
+The bot is designed to quickly get a user's referral link in [the Epsilion War MMORPG](https://t.me/epsilionwarbot?start=ref-537453818)
 
 ### Local setup
 ```shell
